@@ -46,7 +46,7 @@ export default class App extends Component {
       console.log(e);
     }
   }
-  createWine(){
+  createWine(event){
     event.preventDefault();
   }
   componentDidMount() {
