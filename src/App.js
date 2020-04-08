@@ -47,7 +47,7 @@ export default class App extends Component {
     }
   }
   createWine(){
-
+    event.preventDefault();
   }
   componentDidMount() {
 
@@ -61,11 +61,14 @@ export default class App extends Component {
         <div className="row">
         {this.state.winesHTML}
         </div>
-        <form id="main" >
+        <form id="main" onSubmit={this.createWine}>
           <h1>Enter your own wine</h1>
           <label>
               Wine name
               <input type="text" placeholder="Wine"/>
+          </label>
+          <label>
+              <input type="submit" value="Submit"/>
           </label>
         </form>
       </div>
