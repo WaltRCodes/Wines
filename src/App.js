@@ -51,6 +51,7 @@ export default class App extends Component {
           <h5>{wine["grapes"]}</h5>
           <h6>{wine["country"], wine["region"]}</h6>
           <p>{wine["description"]}</p>
+          <button onClick={() => this.deleteApi(wine["id"])}>Delete This</button>
         </div>);
       this.setState({
         wines: response.data,
@@ -67,6 +68,18 @@ export default class App extends Component {
       console.log(response.data);
       console.log(response);
       
+    } catch (e) {
+      console.log(e);
+    }
+  }
+  async deleteApi(id) {
+    console.log("This is running",id);
+    try {
+      const response = await axios.delete('http://myapi-profstream.herokuapp.com/api/77accb/wines/'+id);
+      
+      console.log(response.data);
+      console.log(response);
+      this.callApi();
     } catch (e) {
       console.log(e);
     }
