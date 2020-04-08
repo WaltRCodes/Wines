@@ -40,7 +40,7 @@ export default class App extends Component {
           <img src={wine["picture"]} />
           <h4>{wine["name"]} ({wine["year"]})</h4>
           <h5>{wine["grapes"]}</h5>
-          <h6>{wine["country"], wine["Southern Rhone"]}</h6>
+          <h6>{wine["country"], wine["region"]}</h6>
           <p>{wine["description"]}</p>
         </div>);
       this.setState({
@@ -54,21 +54,23 @@ export default class App extends Component {
   createWine(event){
     event.preventDefault();
   }
-  takeName(){
+  takeName(event){
+    this.setState({name: event.target.value});
   }
-  takeYear(){
+  takeYear(event){
+    this.setState({year: event.target.value});
   }
-  takeGrapes(){
+  takeGrapes(event){
   }
-  takeDescription(){
+  takeDescription(event){
   }
-  takeCountry(){
+  takeCountry(event){
   }
-  takeRegion(){
+  takeRegion(event){
   }
-  takePicture(){
+  takePicture(event){
   }
-  takePrice(){
+  takePrice(event){
   }
   componentDidMount() {
 
@@ -85,8 +87,12 @@ export default class App extends Component {
         <form id="main" onSubmit={this.createWine}>
           <h1>Enter your own wine</h1>
           <label>
-              Wine name
-              <input type="text" placeholder="Wine"/>
+              Wine Name
+              <input type="text" onChange={this.takeName} placeholder="Wine"/>
+          </label>
+          <label>
+              Wine Year
+              <input type="number" onChange={this.takeYear} placeholder="Wine"/>
           </label>
           <label>
               <input type="submit" value="Submit"/>
