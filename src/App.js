@@ -5,6 +5,7 @@ import axios from 'axios'
 export default class App extends Component {
   constructor(props) {
     super(props);
+    {/* store the wine info and html info that the page will use*/}
     this.state = {
       wines: '',
       winesHTML: '',
@@ -27,7 +28,7 @@ export default class App extends Component {
         price: 0,
        }   
     }
-
+    {/* make all the mehods that will be utilized*/}
     this.createWine = this.createWine.bind(this);
     this.takeName = this.takeName.bind(this);
     this.takeYear = this.takeYear.bind(this);
@@ -41,7 +42,7 @@ export default class App extends Component {
   async callApi() {
     try {
       const response = await axios.get('http://myapi-profstream.herokuapp.com/api/77accb/wines');
-      
+      {/* call the API and create HTML elements*/}
       console.log(response.data);
       console.log(response);
       let elements = response.data.map(wine => 
@@ -53,6 +54,7 @@ export default class App extends Component {
           <p>{wine["description"]}</p>
           <button onClick={() => this.deleteApi(wine["id"])}>Delete This</button>
         </div>);
+        {/* store the values in state*/}
       this.setState({
         wines: response.data,
         winesHTML: elements
@@ -64,7 +66,7 @@ export default class App extends Component {
   async postApi(object) {
     try {
       const response = await axios.post('http://myapi-profstream.herokuapp.com/api/77accb/wines',object);
-      
+      {/* update the API with new wine*/}
       console.log(response.data);
       console.log(response);
       
@@ -76,7 +78,7 @@ export default class App extends Component {
     console.log("This is running",id);
     try {
       const response = await axios.delete('http://myapi-profstream.herokuapp.com/api/77accb/wines/'+id);
-      
+      {/* delete a single wine on the api*/}
       console.log(response.data);
       console.log(response);
       this.callApi();
@@ -98,10 +100,12 @@ export default class App extends Component {
         price: this.state.price,
         
     };
+    {/* create a new wine in state and api after the form has been submitted*/}
     this.postApi(wine);
     this.setState({newWineObject: wine});
     this.callApi();
   }
+  
   takeName(event){
     this.setState({name: event.target.value});
   }
@@ -127,7 +131,7 @@ export default class App extends Component {
     this.setState({price: event.target.value});
   }
   componentDidMount() {
-
+{/* call the api on page load*/}
     this.callApi();
   }
 
