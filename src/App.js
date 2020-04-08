@@ -19,6 +19,7 @@ export default class App extends Component {
       let elements = response.data.map(wine => 
         <div key={wine["id"]}>
           <img src={wine["picture"]} />
+          <h4>{wine["name"]} ({wine["year"]})</h4>
         </div>);
       this.setState({
         wines: response.data,
