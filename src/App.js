@@ -62,6 +62,20 @@ export default class App extends Component {
   }
   createWine(event){
     event.preventDefault();
+    let wine = {
+      
+        name: this.state.name,
+        year: this.state.year,
+        grapes: this.state.grapes,
+        country: this.state.country,
+        region: this.state.region,
+        description: this.state.description,
+        picture: this.state.picture,
+        price: this.state.price,
+        
+    };
+
+    this.setState({newWineObject: wine});
   }
   takeName(event){
     this.setState({name: event.target.value});
