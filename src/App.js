@@ -7,8 +7,22 @@ export default class App extends Component {
     super(props);
     this.state = {
       wines: '',
-      winesHTML: ''
+      winesHTML: '',
+      newWine:{
+        
+          "name": "test",
+          "year": 2020,
+          "grapes": "",
+          "country": "",
+          "region": "",
+          "description": "lorem ipsum",
+          "picture": "",
+          "price": 0
+        
+      }
     }
+
+    this.createWine = this.createWine.bind(this);
   }
   async callApi() {
     try {
@@ -20,6 +34,9 @@ export default class App extends Component {
         <div key={wine["id"]}>
           <img src={wine["picture"]} />
           <h4>{wine["name"]} ({wine["year"]})</h4>
+          <h5>{wine["grapes"]}</h5>
+          <h6>{wine["country"], wine["Southern Rhone"]}</h6>
+          <p>{wine["description"]}</p>
         </div>);
       this.setState({
         wines: response.data,
@@ -28,6 +45,9 @@ export default class App extends Component {
     } catch (e) {
       console.log(e);
     }
+  }
+  createWine(){
+
   }
   componentDidMount() {
 
