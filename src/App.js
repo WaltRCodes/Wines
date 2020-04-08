@@ -121,7 +121,31 @@ export default class App extends Component {
           </label>
           <label>
               Wine Year
-              <input type="number" onChange={this.takeYear} placeholder="Wine"/>
+              <input type="number" onChange={this.takeYear} placeholder="Year"/>
+          </label>
+          <label>
+              Wine Grapes
+              <input type="text" onChange={this.takeGrapes} placeholder="Grapes"/>
+          </label>
+          <label>
+              Wine Country
+              <input type="text" onChange={this.takeCountry} placeholder="Country"/>
+          </label>
+          <label>
+              Wine Region
+              <input type="text" onChange={this.takeRegion} placeholder="Region"/>
+          </label>
+          <label>
+              Wine Description
+              <input type="text" onChange={this.takeDescription} placeholder="Description"/>
+          </label>
+          <label>
+              Wine Price
+              <input type="number" onChange={this.takePrice} placeholder="Price"/>
+          </label>
+          <label>
+              Wine Picture URL
+              <input type="url" onChange={this.takePicture} placeholder="URL"/>
           </label>
           <label>
               <input type="submit" value="Submit"/>
