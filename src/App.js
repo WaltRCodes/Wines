@@ -16,7 +16,16 @@ export default class App extends Component {
           description: "lorem ipsum",
           picture: "",
           price: 0,
-       newWineObject: {}   
+       newWineObject: {
+        name: "test",
+        year: 2020,
+        grapes: "",
+        country: "",
+        region: "",
+        description: "lorem ipsum",
+        picture: "",
+        price: 0,
+       }   
     }
 
     this.createWine = this.createWine.bind(this);
@@ -61,16 +70,22 @@ export default class App extends Component {
     this.setState({year: event.target.value});
   }
   takeGrapes(event){
+    this.setState({grapes: event.target.value});
   }
   takeDescription(event){
+    this.setState({description: event.target.value});
   }
   takeCountry(event){
+    this.setState({country: event.target.value});
   }
   takeRegion(event){
+    this.setState({region: event.target.value});
   }
   takePicture(event){
+    this.setState({picture: event.target.value});
   }
   takePrice(event){
+    this.setState({price: event.target.value});
   }
   componentDidMount() {
 
