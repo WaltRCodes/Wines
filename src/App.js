@@ -45,8 +45,8 @@ export default class App extends Component {
       console.log(response.data);
       console.log(response);
       let elements = response.data.map(wine => 
-        <div key={wine["id"]}>
-          <img src={wine["picture"]} />
+        <div key={wine["id"]} className="wine" tabIndex="1">
+          <img src={wine["picture"]} height="200px" width="100%"/>
           <h4>{wine["name"]} ({wine["year"]})</h4>
           <h5>{wine["grapes"]}</h5>
           <h6>{wine["country"], wine["region"]}</h6>

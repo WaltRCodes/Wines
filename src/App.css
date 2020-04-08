@@ -2,3 +2,14 @@
   display:flex;
   flex-direction: row;
 }
+
+.wine{
+  height: 200px;
+  transition: all 4s;
+  text-overflow: clip;
+  overflow: hidden;
+}
+.wine:focus{
+  height: 100%;
+  outline: none;
+}
