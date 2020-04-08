@@ -1,26 +1,42 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react'
 import './App.css';
+import axios from 'axios'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export default class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      wines: '',
+      winesHTML: ''
+    }
+  }
+  async callApi() {
+    try {
+      const response = await axios.get('http://myapi-profstream.herokuapp.com/api/77accb/wines');
+      this.setState({
+        wines: response.data
+      })
+      console.log(response.data);
+      console.log(response);
+      let elements = response.data.map(wine => 
+        <div>
+          <img src={wine["picture"]} />
+        </div>);
+    } catch (e) {
+      console.log(e);
+    }
+  }
+  componentDidMount() {
+
+    this.callApi();
+  }
+
+
+  render() {
+    return (
+      <div>
+        
+      </div>
+    )
+  }
 }
-
-export default App;
