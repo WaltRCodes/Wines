@@ -13,15 +13,17 @@ export default class App extends Component {
   async callApi() {
     try {
       const response = await axios.get('http://myapi-profstream.herokuapp.com/api/77accb/wines');
-      this.setState({
-        wines: response.data
-      })
+      
       console.log(response.data);
       console.log(response);
       let elements = response.data.map(wine => 
-        <div>
+        <div key={wine["id"]}>
           <img src={wine["picture"]} />
         </div>);
+      this.setState({
+        wines: response.data,
+        winesHTML: elements
+      })
     } catch (e) {
       console.log(e);
     }
@@ -35,8 +37,11 @@ export default class App extends Component {
   render() {
     return (
       <div>
-        
+        <div className="row">
+        {this.state.winesHTML}
+        </div>
       </div>
+      
     )
   }
 }
