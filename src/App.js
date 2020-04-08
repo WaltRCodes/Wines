@@ -62,7 +62,11 @@ export default class App extends Component {
         {this.state.winesHTML}
         </div>
         <form id="main" >
-
+          <h1>Enter your own wine</h1>
+          <label>
+              Wine name
+              <input type="text" placeholder="Wine"/>
+          </label>
         </form>
       </div>
       
