@@ -60,6 +60,17 @@ export default class App extends Component {
       console.log(e);
     }
   }
+  async postApi(object) {
+    try {
+      const response = await axios.post('http://myapi-profstream.herokuapp.com/api/77accb/wines',object);
+      
+      console.log(response.data);
+      console.log(response);
+      
+    } catch (e) {
+      console.log(e);
+    }
+  }
   createWine(event){
     event.preventDefault();
     let wine = {
@@ -74,8 +85,9 @@ export default class App extends Component {
         price: this.state.price,
         
     };
-
+    this.postApi(wine);
     this.setState({newWineObject: wine});
+    this.callApi();
   }
   takeName(event){
     this.setState({name: event.target.value});
