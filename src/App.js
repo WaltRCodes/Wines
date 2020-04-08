@@ -23,6 +23,14 @@ export default class App extends Component {
     }
 
     this.createWine = this.createWine.bind(this);
+    this.takeName = this.takeName.bind(this);
+    this.takeYear = this.takeYear.bind(this);
+    this.takeGrapes = this.takeGrapes.bind(this);
+    this.takeCountry = this.takeCountry.bind(this);
+    this.takeRegion = this.takeRegion.bind(this);
+    this.takeDescription = this.takeDescription.bind(this);
+    this.takePicture = this.takePicture.bind(this);
+    this.takePrice = this.takePrice.bind(this);
   }
   async callApi() {
     try {
@@ -48,6 +56,22 @@ export default class App extends Component {
   }
   createWine(event){
     event.preventDefault();
+  }
+  takeName(){
+  }
+  takeYear(){
+  }
+  takeGrapes(){
+  }
+  takeDescription(){
+  }
+  takeCountry(){
+  }
+  takeRegion(){
+  }
+  takePicture(){
+  }
+  takePrice(){
   }
   componentDidMount() {
 
