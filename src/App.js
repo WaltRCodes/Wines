@@ -61,6 +61,9 @@ export default class App extends Component {
         <div className="row">
         {this.state.winesHTML}
         </div>
+        <form id="main" >
+
+        </form>
       </div>
       
     )
