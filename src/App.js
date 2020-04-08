@@ -8,18 +8,15 @@ export default class App extends Component {
     this.state = {
       wines: '',
       winesHTML: '',
-      newWine:{
-        
-          "name": "test",
-          "year": 2020,
-          "grapes": "",
-          "country": "",
-          "region": "",
-          "description": "lorem ipsum",
-          "picture": "",
-          "price": 0
-        
-      }
+          name: "test",
+          year: 2020,
+          grapes: "",
+          country: "",
+          region: "",
+          description: "lorem ipsum",
+          picture: "",
+          price: 0,
+       newWineObject: {}   
     }
 
     this.createWine = this.createWine.bind(this);
